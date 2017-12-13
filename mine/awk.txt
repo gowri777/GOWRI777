@@ -1,0 +1,29 @@
+awk -F ":" 'BEGIN{s=1}{s=s+$3;print s }' /etc/passwd
+
+awk 'BEGIN {FS=":";OFS="|"}{print $1,$3}' /etc/passwd
+
+awk -F ":" ' BEGIN { print "number occurances of nologin in an user information file"; }
+/nologin/ { counter+=1 ; }
+END { printf "%s\n", counter ; }
+' /etc/passwd
+
+
+size=$1
+if [ $size -ge 1048576 ]; then 
+size=$(awk 'BEGIN {printf "%.2f", '$size'/1048576}'M
+fi
+echo $size
+
+$ awk '{
+if ($3 >=35 && $4 >= 35 && $5 >= 35)
+	print $0,"=>","Pass";
+else
+	print $0,"=>","Fail";
+}' student-marks
+
+
+
+
+
+
+
